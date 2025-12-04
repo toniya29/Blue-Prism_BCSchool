@@ -1,0 +1,210 @@
+﻿<process name="ProcessOne" version="1.0" bpversion="7.4.1.15931" narrative="First Process" byrefcollection="true" processrunningmessage="" disableversioning="false" preferredid="7bc5027e-97de-4dba-a880-8d403fe729de" published="true" published_type="2">
+  <view>
+    <camerax>48</camerax>
+    <cameray>9</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="d19d2996-63e1-46ac-a150-a2eab5dffc44" type="Normal" published="False">
+    <name>DivideProcess</name>
+    <view>
+      <camerax>-37</camerax>
+      <cameray>-168</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="0e2f8f8e-db1f-41f2-a0eb-8ca396276f6f" name="Start" type="Start">
+    <display x="15" y="-210" />
+    <inputs>
+      <input type="number" name="Valore Due" narrative="5" stage="valore due" />
+      <input type="number" name="Valore Uno" narrative="5" stage="Valore uno" />
+    </inputs>
+    <onsuccess>d9cc4bb7-a624-4c9b-a91d-78e4fcbe37bc</onsuccess>
+  </stage>
+  <stage stageid="69863d08-6009-4340-9d23-164177a15cd1" name="End" type="End">
+    <display x="15" y="135" />
+  </stage>
+  <stage stageid="11c9f493-d9b4-41e8-8fc3-2407a439aca6" name="Stage1" type="ProcessInfo">
+    <display x="210" y="-255" w="150" h="90" />
+  </stage>
+  <stage stageid="9c426841-e656-4ed3-8920-a7f4e24dc4b3" name="Valore uno" type="Data">
+    <loginhibit onsuccess="true" />
+    <narrative>Valore One</narrative>
+    <display x="-225" y="30" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <exposure>Session</exposure>
+  </stage>
+  <stage stageid="960fa116-6280-4445-9cf5-90eae7e0f8c2" name="valore due" type="Data">
+    <loginhibit onsuccess="true" />
+    <narrative>Valore Two</narrative>
+    <display x="-225" y="75" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <exposure>Session</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="ecc2df38-1e6b-46bc-bde7-4b7bea049c22" name="risultato" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-225" y="120" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9a74ef21-22ae-4385-85f5-ac4051499d6e" name="Somma " type="Calculation">
+    <loginhibit onsuccess="true" />
+    <narrative>Somma di due numerti</narrative>
+    <display x="15" y="-120" />
+    <onsuccess>78c15981-f29d-410d-bc4a-a037e8fbbc4d</onsuccess>
+    <calculation expression="[Valore uno]+[valore due]" stage="risultato" />
+  </stage>
+  <stage stageid="28e16d4d-50dc-4aa4-bb0b-16828287b74e" name="End1" type="End">
+    <loginhibit onsuccess="true" />
+    <display x="210" y="60" />
+  </stage>
+  <stage stageid="750fe28b-93ef-4871-978d-df99c2426616" name="se e pari o disparo" type="Decision">
+    <display x="30" y="0" />
+    <decision expression="[arr]=0" />
+    <ontrue>cd6ab3a2-d26e-4478-bea0-a242d5d72ca5</ontrue>
+    <onfalse>69863d08-6009-4340-9d23-164177a15cd1</onfalse>
+  </stage>
+  <stage stageid="78c15981-f29d-410d-bc4a-a037e8fbbc4d" name="Arr" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-60" />
+    <onsuccess>750fe28b-93ef-4871-978d-df99c2426616</onsuccess>
+    <calculation expression="[risultato]- (RndDn([risultato]/2)*2)" stage="arr" />
+  </stage>
+  <stage stageid="cd6ab3a2-d26e-4478-bea0-a242d5d72ca5" name="Calc1" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="120" y="0" />
+    <onsuccess>28e16d4d-50dc-4aa4-bb0b-16828287b74e</onsuccess>
+    <calculation expression="[arr]+1" stage="arr" />
+  </stage>
+  <stage stageid="02c5ec98-d5f0-479b-b019-3f951b562515" name="DivideProcess" type="SubSheetInfo">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="9471582a-387f-4405-b1b5-e909428fb1c9" name="Start" type="Start">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <display x="15" y="-180" />
+    <onsuccess>bba1cb48-0e2f-4abb-87e3-b1054b947346</onsuccess>
+  </stage>
+  <stage stageid="13720068-4d8a-4fe2-8087-f770cd315787" name="End" type="End">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <display x="0" y="180" />
+  </stage>
+  <stage stageid="d9cc4bb7-a624-4c9b-a91d-78e4fcbe37bc" name="DivideProcess" type="SubSheet">
+    <loginhibit onsuccess="true" />
+    <display x="135" y="-135" />
+    <inputs>
+      <input type="number" name="ValoreUnoPerDIV" friendlyname="ValoreUnoPerDIV" expr="" />
+      <input type="number" name="ValoreDuePerDiv" friendlyname="ValoreDuePerDiv" expr="" />
+    </inputs>
+    <onsuccess>9a74ef21-22ae-4385-85f5-ac4051499d6e</onsuccess>
+    <processid>d19d2996-63e1-46ac-a150-a2eab5dffc44</processid>
+  </stage>
+  <stage stageid="ae27463d-d14c-49ea-a915-ab35e0bf8a10" name="Note2" type="Note">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <narrative>In aggiunta all
+esercizio sulle slides, eseguire un processo che calcola la
+divisione tra due numeri e controlla se il risulta
+to è un numero divisibile per 3
+
+nel caso in cui lo sia aggiunge 5 al risultato e controlla se è un numero pari
+Nel caso in cui non lo sia,moltiplica il numero per
+2 e controlla se il numero è
+divisibile per 5.
+Il tutto deve essere avviato al
+interno della control room con param
+etri presi
+in input</narrative>
+    <display x="240" y="-75" w="180" h="180" />
+  </stage>
+  <stage stageid="4610b0fa-be02-43ca-bb36-b815eb8129f4" name="RisultDiv" type="Data">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="90" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <exposure>Session</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="70a1bced-ce9f-428d-8050-970bd8b0621c" name="e divisibile per 3" type="Decision">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <display x="-30" y="30" w="90" h="60" />
+    <decision expression="[arr3]=0" />
+    <ontrue>6b842478-0658-469b-826b-c936dde14c1a</ontrue>
+    <onfalse>d1390314-baff-4076-8d28-10695ee8d103</onfalse>
+  </stage>
+  <stage stageid="765e09ca-1b42-420d-bb19-cb972a628031" name="Arr" type="Calculation">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-30" y="-30" />
+    <onsuccess>70a1bced-ce9f-428d-8050-970bd8b0621c</onsuccess>
+    <calculation expression="[RisultDiv]- (RndDn([RisultDiv]/2)*3)" stage="arr3" />
+  </stage>
+  <stage stageid="6b842478-0658-469b-826b-c936dde14c1a" name="Moltiplicazione per 5" type="Calculation">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="0" y="105" />
+    <onsuccess>13720068-4d8a-4fe2-8087-f770cd315787</onsuccess>
+    <calculation expression="[RisultDiv]*5" stage="RisultDiv" />
+  </stage>
+  <stage stageid="bba1cb48-0e2f-4abb-87e3-b1054b947346" name="Dividi" type="Calculation">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-105" />
+    <onsuccess>765e09ca-1b42-420d-bb19-cb972a628031</onsuccess>
+    <calculation expression="[Valore uno]/[valore due]" stage="RisultDiv" />
+  </stage>
+  <stage stageid="37e9e41e-e41b-4037-982a-abca24ae321b" name="arr" type="Data">
+    <display x="-225" y="165" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ca8004f2-3101-451c-9d41-bcdc0f9199c6" name="arr3" type="Data">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="135" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d1390314-baff-4076-8d28-10695ee8d103" name="Calcolaper2" type="Calculation">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="105" y="30" />
+    <onsuccess>04647981-201b-4b1b-bd33-afecfc9fecf6</onsuccess>
+    <calculation expression="[RisultDiv]*2" stage="RisultDiv" />
+  </stage>
+  <stage stageid="41adb209-1dc3-484c-a03a-bf933fa299aa" name="divisibile per 5" type="Decision">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <display x="255" y="150" w="90" h="60" />
+    <decision expression="[arr3]=0" />
+    <ontrue>95f7b75e-cd52-4915-b9d9-b275241ff382</ontrue>
+    <onfalse>7b8c7438-44dd-4585-94b2-e1068f59f24c</onfalse>
+  </stage>
+  <stage stageid="04647981-201b-4b1b-bd33-afecfc9fecf6" name="ArrPer5" type="Calculation">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="195" y="60" />
+    <onsuccess>41adb209-1dc3-484c-a03a-bf933fa299aa</onsuccess>
+    <calculation expression="[RisultDiv]- (RndDn([RisultDiv]/2)*5)" stage="arr3" />
+  </stage>
+  <stage stageid="95f7b75e-cd52-4915-b9d9-b275241ff382" name="End2" type="End">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="285" y="240" />
+  </stage>
+  <stage stageid="7b8c7438-44dd-4585-94b2-e1068f59f24c" name="End3" type="End">
+    <subsheetid>d19d2996-63e1-46ac-a150-a2eab5dffc44</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="135" y="225" />
+  </stage>
+</process>
