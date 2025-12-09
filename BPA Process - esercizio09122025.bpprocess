@@ -1,0 +1,138 @@
+﻿<process name="esercizio09122025" version="1.0" bpversion="7.4.1.15931" narrative="" byrefcollection="true" processrunningmessage="" disableversioning="false" preferredid="15e6265c-d0f9-4288-b15c-c454d5b1ccc1" published="true" published_type="2">
+  <view>
+    <camerax>0</camerax>
+    <cameray>-21</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="64157a96-e40d-4810-ae57-85c1f1465fd6" type="Normal" published="False">
+    <name>DatiPersona</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="0abed27d-e792-41e9-b9c9-84bff48c7a79" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <onsuccess>5c48e1d1-ffa1-465f-8552-7fa5ae253a55</onsuccess>
+  </stage>
+  <stage stageid="5fc542e7-d6c9-4668-bde1-0439c8e417ea" name="End" type="End">
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="16f92957-4b4c-4bdf-a272-e8e35600f3cd" name="Stage1" type="ProcessInfo">
+    <display x="-165" y="-225" w="150" h="90" />
+  </stage>
+  <stage stageid="cc435a0b-3a96-4866-9791-004d7e33cc5f" name="DatiPersona" type="SubSheetInfo">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="d89aa847-c268-468d-880c-71f58bbd5813" name="Start" type="Start">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <display x="15" y="-210" />
+    <inputs>
+      <input type="text" name="NomeSub" narrative="N" stage="NomeSub" />
+      <input type="text" name="CognomeSub" stage="CognomeSub" />
+      <input type="text" name="IndirizzoSub" stage="IndirizzoSub" />
+    </inputs>
+    <onsuccess>7d64ad8e-1f13-4f4c-8239-d5898cd51bf0</onsuccess>
+  </stage>
+  <stage stageid="f4fcd490-86a4-490f-b675-6016e6f2eba9" name="End" type="End">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <display x="15" y="90" />
+    <outputs>
+      <output type="text" name="resultPageSub" stage="ConcatResultSub" />
+    </outputs>
+  </stage>
+  <stage stageid="5c48e1d1-ffa1-465f-8552-7fa5ae253a55" name="DatiPersona" type="SubSheet">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="NomeSub" friendlyname="NomeSub" narrative="N" expr="" />
+      <input type="text" name="CognomeSub" friendlyname="CognomeSub" expr="" />
+      <input type="text" name="IndirizzoSub" friendlyname="IndirizzoSub" expr="" />
+    </inputs>
+    <outputs>
+      <output type="text" name="resultPageSub" friendlyname="resultPageSub" stage="MainResult" />
+    </outputs>
+    <onsuccess>5fc542e7-d6c9-4668-bde1-0439c8e417ea</onsuccess>
+    <processid>64157a96-e40d-4810-ae57-85c1f1465fd6</processid>
+  </stage>
+  <stage stageid="130bf0ac-ace3-46e4-8856-2f5279eed94a" name="NomeSub" type="Data">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <display x="-195" y="75" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">Simone</initialvalue>
+    <exposure>Statistic</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d659308d-10e6-492b-926d-5e878630c55e" name="CognomeSub" type="Data">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <display x="-180" y="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">Rossi</initialvalue>
+    <exposure>Statistic</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b5b04163-b39c-484b-8da3-af17208a84ad" name="Concat" type="Calculation">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="15" />
+    <onsuccess>f4fcd490-86a4-490f-b675-6016e6f2eba9</onsuccess>
+    <calculation expression="&quot;NOME :&quot; &amp; [NomeSub] &amp; NewLine() &amp; &quot;COGNOME :&quot; &amp; [CognomeSub] &amp; NewLine() &amp;&quot;via :&quot; &amp; [IndirizzoSub]" stage="ConcatResultSub" />
+  </stage>
+  <stage stageid="89db7c62-371d-46e2-bf09-b1ff8449c6aa" name="IndirizzoSub" type="Data">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-165" y="-15" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">Via Amico Aspertini</initialvalue>
+    <exposure>Statistic</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="97b6c91a-a71b-4480-972b-7c16b4aa7e5b" name="ConcatResultSub" type="Data">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-210" y="120" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <exposure>Statistic</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="391a1551-b148-41a8-bc7c-a64138f6d64d" name="MainResult" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-150" y="-15" w="210" h="90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <exposure>Statistic</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7d64ad8e-1f13-4f4c-8239-d5898cd51bf0" name="ControlloNome" type="Decision">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <display x="15" y="-120" />
+    <decision expression="[CognomeSub] = &quot;Rossi&quot;  AND [NomeSub] = &quot;Simone&quot;" />
+    <ontrue>b5b04163-b39c-484b-8da3-af17208a84ad</ontrue>
+    <onfalse>6413e8c9-5228-4682-9f73-a5f70a63610a</onfalse>
+  </stage>
+  <stage stageid="6c7aa239-5a71-4399-964d-c89253fd5959" name="End1" type="End">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="-120" />
+    <outputs>
+      <output type="text" name="resultPageSub" stage="ConcatResultSub" />
+    </outputs>
+  </stage>
+  <stage stageid="6413e8c9-5228-4682-9f73-a5f70a63610a" name="Calc1" type="Calculation">
+    <subsheetid>64157a96-e40d-4810-ae57-85c1f1465fd6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="105" y="-120" />
+    <onsuccess>6c7aa239-5a71-4399-964d-c89253fd5959</onsuccess>
+    <calculation expression="&quot;NOME :&quot; &amp; [NomeSub] &amp; NewLine() &amp; &quot;COGNOME :&quot; &amp; [CognomeSub] &amp; NewLine() &amp;&quot; Chie Questo&quot;" stage="ConcatResultSub" />
+  </stage>
+</process>

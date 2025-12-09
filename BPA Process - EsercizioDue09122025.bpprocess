@@ -1,0 +1,162 @@
+﻿<process name="EsercizioDue09122025" version="1.0" bpversion="7.4.1.15931" narrative="" byrefcollection="true" processrunningmessage="" disableversioning="false" preferredid="ed677930-ff82-4e34-a91b-33297f56c663">
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62" type="Normal" published="False">
+    <name>Controllo</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="e6dbfef3-aaf5-4ab3-b06f-314c5730a283" name="Start" type="Start">
+    <display x="30" y="-135" />
+    <onsuccess>e04d0ec9-071f-4137-902d-f0d905b15e56</onsuccess>
+  </stage>
+  <stage stageid="96be1877-f976-43d4-9213-eb5b0b0fe356" name="End" type="End">
+    <display x="30" y="195" />
+  </stage>
+  <stage stageid="c12e3407-6100-4618-9146-8940dbb6c48e" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="17861f98-29c7-4e76-a014-40299122c6e4" name="resultPageMain" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-180" y="90" w="180" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <exposure>Statistic</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4f6af3d5-d1ce-45a7-af07-34ddc21614b8" name="ListaNomiMain" type="Collection">
+    <display x="-180" y="-15" w="120" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Nome" type="text" />
+      <field name="Cognome" type="text" />
+      <field name="Eta" type="date" />
+    </collectioninfo>
+    <initialvalue>
+      <row>
+        <field name="Nome" type="text" value="Antonio" />
+        <field name="Cognome" type="text" value="Manzo" />
+        <field name="Eta" type="date" value="1998/06/29" />
+      </row>
+      <row>
+        <field name="Nome" type="text" value="Marco" />
+        <field name="Cognome" type="text" value="Zii" />
+        <field name="Eta" type="date" value="2025/12/03" />
+      </row>
+    </initialvalue>
+  </stage>
+  <stage stageid="db16fecd-709e-4be9-9020-97207f3dca7b" name="Controllo" type="SubSheetInfo">
+    <subsheetid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="97046052-eab7-4697-805d-ab53228ff55b" name="Start" type="Start">
+    <subsheetid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</subsheetid>
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="nomeSub" stage="nome" />
+      <input type="date" name="etaSub" stage="etaSub" />
+    </inputs>
+    <onsuccess>c280b70f-6bcd-4183-b193-96f72608b939</onsuccess>
+  </stage>
+  <stage stageid="c5346270-3e3f-4ca6-848e-4b6045882480" name="End" type="End">
+    <subsheetid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</subsheetid>
+    <display x="15" y="165" />
+    <outputs>
+      <output type="text" name="resultoutput" stage="ResultPageSub" />
+    </outputs>
+  </stage>
+  <stage stageid="3d44c07a-61af-462b-aded-39cddfeb5999" name="Controllo" type="SubSheet">
+    <loginhibit onsuccess="true" />
+    <display x="30" y="0" />
+    <inputs>
+      <input type="text" name="nomeSub" friendlyname="nomeSub" expr="[ListaNomiMain.Nome]" />
+      <input type="date" name="etaSub" friendlyname="etaSub" expr="[ListaNomiMain.Eta]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="resultoutput" friendlyname="resultoutput" stage="resultPageMain" />
+    </outputs>
+    <onsuccess>842f336f-eb89-4b4b-b688-bb012bcf17f4</onsuccess>
+    <processid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</processid>
+  </stage>
+  <stage stageid="c163c9ae-79cc-4b6a-b0a8-90211b1cda54" name="nome" type="Data">
+    <subsheetid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</subsheetid>
+    <display x="-195" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a86666c6-8edf-4d1a-863a-25340139ffe4" name="etaSub" type="Data">
+    <subsheetid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</subsheetid>
+    <display x="-210" y="45" />
+    <datatype>date</datatype>
+    <initialvalue />
+    <exposure>Statistic</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="842f336f-eb89-4b4b-b688-bb012bcf17f4" name="Loop End1" type="LoopEnd">
+    <loginhibit onsuccess="true" />
+    <display x="30" y="60" />
+    <onsuccess>96be1877-f976-43d4-9213-eb5b0b0fe356</onsuccess>
+    <groupid>e9869b89-1d13-464a-b697-e71a05fc7877</groupid>
+  </stage>
+  <stage stageid="e04d0ec9-071f-4137-902d-f0d905b15e56" name="Loop Start1" type="LoopStart">
+    <loginhibit onsuccess="true" />
+    <display x="30" y="-75" />
+    <onsuccess>3d44c07a-61af-462b-aded-39cddfeb5999</onsuccess>
+    <groupid>e9869b89-1d13-464a-b697-e71a05fc7877</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>ListaNomiMain</loopdata>
+  </stage>
+  <stage stageid="c280b70f-6bcd-4183-b193-96f72608b939" name="Decision1" type="Decision">
+    <subsheetid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</subsheetid>
+    <display x="15" y="-15" />
+    <decision expression="DateDiff(0, [etaSub],Today() ) &gt; 18" />
+    <ontrue>fd28ad58-3563-4f4a-af40-88d30f6dcc2a</ontrue>
+    <onfalse>d5bbe1cf-b81a-4817-8900-e46c1882f006</onfalse>
+  </stage>
+  <stage stageid="fd28ad58-3563-4f4a-af40-88d30f6dcc2a" name="Calc1" type="Calculation">
+    <subsheetid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="75" />
+    <onsuccess>c5346270-3e3f-4ca6-848e-4b6045882480</onsuccess>
+    <calculation expression="[nome]  &amp; NewLine() &amp; &quot;e maggiorenne&quot;" stage="ResultPageSub" />
+  </stage>
+  <stage stageid="d5bbe1cf-b81a-4817-8900-e46c1882f006" name="Calc2" type="Calculation">
+    <subsheetid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="-15" />
+    <onsuccess>515e679e-a263-4398-9a00-5868928cdd73</onsuccess>
+    <calculation expression="[nome]  &amp; NewLine() &amp; &quot;e minorenne&quot;" stage="ResultPageSub" />
+  </stage>
+  <stage stageid="515e679e-a263-4398-9a00-5868928cdd73" name="End1" type="End">
+    <subsheetid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="285" y="-15" />
+    <outputs>
+      <output type="text" name="resultoutput" stage="ResultPageSub" />
+    </outputs>
+  </stage>
+  <stage stageid="f873c082-6d67-4e55-80eb-8e03f7086fa3" name="ResultPageSub" type="Data">
+    <subsheetid>c4d0058c-7fe5-41f1-a6ca-7d9255bcdd62</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-240" y="105" w="150" h="60" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <exposure>Statistic</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+</process>
